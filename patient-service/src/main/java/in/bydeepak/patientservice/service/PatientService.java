@@ -39,7 +39,7 @@ public class PatientService {
         Patient patient = patientRepository.findById(id).orElseThrow(()->{
             throw new PatientNotFoundException("Patient not found with this id");
         });
-        if(patientRepository.existsByEmail(request.getEmail())){
+        if(patientRepository.existsByEmailAndIdNot(request.getEmail(),id)){
             throw new EmailAlreadyAvailableException("Email exists");
         }
         patient.setName(request.getName());
@@ -49,4 +49,7 @@ public class PatientService {
         return PatientMapper.toDto(patientRepository.save(patient));
    }
 
+   public void deletePatient(UUID id){
+        patientRepository.deleteById(id);
+   }
 }
