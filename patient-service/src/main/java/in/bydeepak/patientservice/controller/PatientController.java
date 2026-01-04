@@ -3,6 +3,7 @@ package in.bydeepak.patientservice.controller;
 import in.bydeepak.patientservice.dto.PatientRequestDto;
 import in.bydeepak.patientservice.dto.PatientResponseDto;
 import in.bydeepak.patientservice.dto.validator.CreatePatientValidationGroup;
+import in.bydeepak.patientservice.grpc.BillingServiceGrpcClient;
 import in.bydeepak.patientservice.repository.PatientRepository;
 import in.bydeepak.patientservice.service.PatientService;
 import io.swagger.v3.oas.annotations.Operation;
